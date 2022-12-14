@@ -3,7 +3,7 @@
     ref="formRef"
     :model="numberValidateForm"
     label-width="100px"
-    :style="{ border: '1px solid red', display: 'flex' }"
+    :style="{ display: 'flex' }"
   >
     <el-form-item label="todoName" prop="todoName">
       <el-input v-model.number="numberValidateForm.todoName" type="text" />
@@ -28,8 +28,4 @@
     ajax({ method: "post", url: "/api/v1/getTodo", data: numberValidateForm });
   };
 </script>
-<style scoped>
-  .read-the-docs {
-    color: #888;
-  }
-</style>
+<style scoped></style>

@@ -1,10 +1,10 @@
 import { createApp } from "vue";
 import "./style.css";
-import App from "./App.vue";
+import Home from "./home.vue";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 
-const app = createApp(App);
+const app = createApp(Home);
 app.use(ElementPlus);
 
 app.mount("#app");
