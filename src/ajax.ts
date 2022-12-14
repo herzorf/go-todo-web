@@ -10,16 +10,12 @@ function ajax({ method, url, data }: AjaxProps) {
     switch (method) {
         case "get":
             {
-                http.get(url, {
-                    data,
-                });
+                http.get(url, data);
             }
             break;
         case "post":
             {
-                http.post(url, {
-                    data,
-                });
+                http.post(url, data);
             }
             break;
         default:

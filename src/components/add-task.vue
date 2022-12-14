@@ -21,7 +21,7 @@
       method: "post",
       url: "/api/v1/getTodo",
       data: {
-        done: false,
+        done: true,
         name: formData.name,
       },
     });
