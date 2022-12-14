@@ -1,12 +1,7 @@
 <template>
-  <el-form
-    ref="formRef"
-    :model="numberValidateForm"
-    label-width="100px"
-    :style="{ display: 'flex' }"
-  >
-    <el-form-item label="todoName" prop="todoName">
-      <el-input v-model.number="numberValidateForm.todoName" type="text" />
+  <el-form :model="formData" label-width="100px" :style="{ display: 'flex' }">
+    <el-form-item label="name" prop="name">
+      <el-input v-model="formData.name" type="text" />
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="submitForm()">Submit</el-button>
@@ -17,15 +12,19 @@
   import { reactive, ref } from "vue";
   import ajax from "../ajax";
 
-  const formRef = ref();
-
-  const numberValidateForm = reactive({
-    todoName: "",
+  const formData = reactive({
+    name: "",
   });
 
   const submitForm = () => {
-    console.log(numberValidateForm.todoName);
-    ajax({ method: "post", url: "/api/v1/getTodo", data: numberValidateForm });
+    ajax({
+      method: "post",
+      url: "/api/v1/getTodo",
+      data: {
+        done: false,
+        name: formData.name,
+      },
+    });
   };
 </script>
 <style scoped></style>
