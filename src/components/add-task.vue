@@ -39,6 +39,6 @@
 </script>
 <style scoped lang="scss">
   .todo-form {
-    width: 500px;
+    min-width: 500px;
   }
 </style>
