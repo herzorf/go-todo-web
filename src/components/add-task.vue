@@ -19,11 +19,13 @@
   const submitForm = () => {
     ajax({
       method: "post",
-      url: "/api/v1/getTodo",
+      url: "/api/v1/addTodo",
       data: {
         done: true,
         name: formData.name,
       },
+    }).then((res) => {
+      console.log(res);
     });
   };
 </script>

@@ -2,7 +2,7 @@ import axios from "axios";
 interface AjaxProps {
     method: "post" | "get",
     url: string
-    data: Object
+    data?: object
 }
 function ajax({ method, url, data }: AjaxProps) {
     const http = axios.create();
@@ -10,16 +10,14 @@ function ajax({ method, url, data }: AjaxProps) {
     switch (method) {
         case "get":
             {
-                http.get(url, data);
+                return http.get(url, data);
             }
-            break;
         case "post":
             {
-                http.post(url, data);
+                return http.post(url, data);
             }
-            break;
         default:
-            console.log("方法错误");
+            return Promise.reject("method参数错误")
     }
 }
 export default ajax;
