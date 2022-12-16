@@ -21,7 +21,7 @@
       method: "post",
       url: "/api/v1/addTodo",
       data: {
-        done: true,
+        done: false,
         name: formData.name,
       },
     }).then((res) => {

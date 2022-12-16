@@ -1,7 +1,8 @@
 <template>
-  <ShowTasks />
-  <br />
   <AddTask />
+
+  <br />
+  <ShowTasks />
 </template>
 <script setup lang="ts">
   import AddTask from "./components/add-task.vue";
