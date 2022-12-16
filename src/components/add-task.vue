@@ -1,11 +1,19 @@
 <template>
-  <el-form :model="formData" label-width="100px" :style="{ display: 'flex' }">
-    <el-form-item label="name" prop="name">
-      <el-input v-model="formData.name" type="text" />
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="submitForm()">Submit</el-button>
-    </el-form-item>
+  <el-form :model="formData" :style="{ display: 'flex' }" class="todo-form">
+    <el-row :gutter="20" :style="{ width: '100%' }">
+      <el-col :span="20">
+        <el-form-item label="" prop="name">
+          <el-input size="large" v-model="formData.name" type="text" />
+        </el-form-item>
+      </el-col>
+      <el-col :span="2">
+        <el-form-item>
+          <el-button type="primary" size="large" @click="submitForm()"
+            >Submit</el-button
+          >
+        </el-form-item>
+      </el-col>
+    </el-row>
   </el-form>
 </template>
 <script setup lang="ts">
@@ -29,4 +37,8 @@
     });
   };
 </script>
-<style scoped></style>
+<style scoped lang="scss">
+  .todo-form {
+    width: 500px;
+  }
+</style>

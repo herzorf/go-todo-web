@@ -3,7 +3,9 @@
     <ul>
       <li v-for="todo in todos">
         <span>{{ todo.name }}</span>
-        <el-button :disabled="todo.done">完成</el-button>
+        <el-button @click="toggle(todo.id)">{{
+          todo.done ? "再做一次" : "完成"
+        }}</el-button>
       </li>
     </ul>
   </div>
@@ -12,18 +14,21 @@
   import { reactive, ref } from "vue";
   import ajax from "../ajax";
   const todos = ref();
-  const res = ajax({ method: "get", url: "/api/v1/getTodos" }).then((res) => {
+  ajax({ method: "get", url: "/api/v1/getTodos" }).then((res) => {
     const {
       data: { data },
     } = res;
     todos.value = data;
   });
-  console.log(res);
 
-  // const {
-
-  // } = res;
-  // console.log(todos);
+  const toggle = (id: number) => {
+    console.log(id);
+    ajax({ method: "post", url: "/api/v1/toggleTodo", data: { id } }).then(
+      (res) => {
+        console.log(res.data);
+      }
+    );
+  };
 </script>
 <style lang="scss" setup>
   ul {
