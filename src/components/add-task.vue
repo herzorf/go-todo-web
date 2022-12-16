@@ -43,6 +43,7 @@
           },
         }).then((res) => {
           console.log(res);
+          formRef.resetFields();
         });
     });
   };
