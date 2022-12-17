@@ -8,7 +8,10 @@
   >
     <el-row :gutter="20" :style="{ width: '100%' }">
       <el-col :span="20">
-        <el-form-item :rules="[{ required: true }]" prop="name">
+        <el-form-item
+          :rules="[{ required: true, message: '请输入todo的name' }]"
+          prop="name"
+        >
           <el-input size="large" v-model="formData.name" type="text" />
         </el-form-item>
       </el-col>
