@@ -25,6 +25,8 @@
   import { FormInstance } from "element-plus/es/components/form";
   import { reactive, ref } from "vue";
   import ajax from "../ajax";
+  import { useTodoStore } from "../store/todoStore";
+  const todosStroe = useTodoStore();
   const formRef = ref<FormInstance>();
   const formData = reactive({
     name: "",
@@ -34,15 +36,8 @@
     if (!formRef) return;
     formRef.validate((valid) => {
       valid &&
-        ajax({
-          method: "post",
-          url: "/api/v1/addTodo",
-          data: {
-            done: false,
-            name: formData.name,
-          },
-        }).then((res) => {
-          console.log(res);
+        todosStroe.addTodo(formData.name).then((res) => {
+          todosStroe.getTodos();
           formRef.resetFields();
         });
     });
