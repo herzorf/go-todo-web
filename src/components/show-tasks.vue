@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="todo in todosStroe.todos">
+      <li v-for="todo in todosStroe.todos" :class="todo.done && 'done'">
         <span>{{ todo.name }}</span>
         <div>
           <el-button @click="todosStroe.toggleTodo(todo.id)">{{
@@ -23,6 +23,13 @@
 <style lang="scss" setup>
   ul {
     list-style-type: none;
+    .done {
+      > span {
+        text-decoration: line-through;
+        color: rgb(152, 152, 152);
+      }
+      border-color: rgb(152, 152, 152);
+    }
     li {
       display: flex;
       justify-content: space-between;
