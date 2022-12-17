@@ -4,6 +4,7 @@
     ref="formRef"
     :style="{ display: 'flex' }"
     class="todo-form"
+    @submit.prevent
   >
     <el-row :gutter="20" :style="{ width: '100%' }">
       <el-col :span="20">
@@ -24,7 +25,6 @@
 <script setup lang="ts">
   import { FormInstance } from "element-plus/es/components/form";
   import { reactive, ref } from "vue";
-  import ajax from "../ajax";
   import { useTodoStore } from "../store/todoStore";
   const todosStroe = useTodoStore();
   const formRef = ref<FormInstance>();
