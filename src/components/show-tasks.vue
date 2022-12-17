@@ -3,9 +3,12 @@
     <ul>
       <li v-for="todo in todos">
         <span>{{ todo.name }}</span>
-        <el-button @click="toggle(todo.id)">{{
-          todo.done ? "再做一次" : "完成"
-        }}</el-button>
+        <div>
+          <el-button @click="toggle(todo.id)">{{
+            todo.done ? "再做一次" : "完成"
+          }}</el-button>
+          <el-button type="danger" @click="deleteTodo(todo.id)">删除</el-button>
+        </div>
       </li>
     </ul>
   </div>
@@ -26,6 +29,14 @@
     ajax({ method: "post", url: "/api/v1/toggleTodo", data: { id } }).then(
       (res) => {
         console.log(res.data);
+      }
+    );
+  };
+  const deleteTodo = (id: number) => {
+    console.log(id);
+    ajax({ method: "post", url: "/api/v1/deleteTodo", data: { id } }).then(
+      (res) => {
+        console.log(res);
       }
     );
   };
